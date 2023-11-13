@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO 3 - Muhammad Fauzan Saputra - 202143500586</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td><input name="nama" type="text"></td>
+        </tr>
+        <tr>
+            <td>Nilai Tugas</td>
+            <td>:</td>
+            <td><input name="nilai_tugas" type="number"></td>
+        </tr>
+        <tr>
+            <td>Nilai UTS</td>
+            <td>:</td>
+            <td><input name="nilai_uts" type="number"></td>
+        </tr>
+        <tr>
+            <td>Nilai UAS</td>
+            <td>:</td>
+            <td><input name="nilai_uas" type="number"></td>
+        </tr>
+
+    </table>
+    <button id="hitung">Hitung</button>
+
+    <script>
+
+        document.getElementById("hitung").addEventListener("click", () => {
+            var nama = document.getElementsByName("nama")[0].value;
+            var nilai_tugas = document.getElementsByName("nilai_tugas")[0].value;
+            var nilai_uts = document.getElementsByName("nilai_uts")[0].value;
+            var nilai_uas = document.getElementsByName("nilai_uas")[0].value;
+            console.log(nama);
+
+            var nilai = hitungNilai(nilai_tugas, nilai_uts, nilai_uas);
+            var nilaiH = nilaiHuruf(nilai);
+
+            alert("Mahasiswa dengan nama "+nama+" mendapat nilai "+nilai+"("+nilaiH+")");
+        })
+
+        function hitungNilai(nilai_tugas, nilai_uts, nilai_uas) {
+            return (nilai_tugas * 0.2 + nilai_uts * 0.3+ nilai_uas * 0.5);
+        }
+
+        function nilaiHuruf(nilai) {
+            var nilaiHuruf = '';
+            if (nilai >= 90) {
+                nilaiHuruf = 'A';
+            } else if (nilai >= 80) {
+                nilaiHuruf = 'B';
+            } else if (nilai >= 70) {
+                nilaiHuruf = 'C';
+            }else if (nilai >= 60) {
+                nilaiHuruf = 'D';
+            }else {
+                nilaiHuruf = 'E';
+            }
+
+            return nilaiHuruf;
+        }
+    </script>
+</body>
+</html>
